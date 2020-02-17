@@ -6,12 +6,26 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.SimpleAdapter
 
 class MainActivity : AppCompatActivity() {
+
+    private var _menuList: MutableList<MutableMap<String, Any>>? = null
+
+    private val FROM = arrayOf("name", "price")
+    private val TO = intArrayOf(R.id.tvMenuName, R.id.tvMenuPrice)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        _menuList = createTeishokuList()
+        val lvMenu = findViewById<ListView>(R.id.lvMenu)
+
+        val adapter = SimpleAdapter(applicationContext, _menuList, R.layout.row, FROM, TO)
+
+        lvMenu.adapter = adapter
+        lvMenu.onItemClickListener
     }
 
     private inner class ListItemClickListener : AdapterView.OnItemClickListener {
