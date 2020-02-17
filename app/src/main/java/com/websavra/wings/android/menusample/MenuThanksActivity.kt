@@ -21,8 +21,5 @@ class MenuThanksActivity : AppCompatActivity() {
         tvMenuName.text = menuName
         tvMenuPrice.text = menuPrice
     }
-
-    fun onBackButtonClick(view: View) {
-        finish()
-    }
+    
 }
