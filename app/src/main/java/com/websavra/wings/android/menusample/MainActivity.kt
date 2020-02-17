@@ -3,6 +3,7 @@ package com.websavra.wings.android.menusample
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         lvMenu.adapter = adapter
         lvMenu.onItemClickListener
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_options_menu_list, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     private inner class ListItemClickListener : AdapterView.OnItemClickListener {
