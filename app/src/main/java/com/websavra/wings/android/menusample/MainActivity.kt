@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = SimpleAdapter(applicationContext, _menuList, R.layout.row, FROM, TO)
 
         lvMenu.adapter = adapter
-        lvMenu.onItemClickListener
+        lvMenu.onItemClickListener = ListItemClickListener()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
