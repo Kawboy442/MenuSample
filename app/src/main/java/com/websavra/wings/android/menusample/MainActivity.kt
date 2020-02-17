@@ -68,16 +68,7 @@ class MainActivity : AppCompatActivity() {
         override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
 
             val item = parent.getItemAtPosition(position) as MutableMap<String, Any>
-
-            val menuName = item["name"] as String
-            val menuPrice = item["price"] as Int
-
-            val intent = Intent(applicationContext, MenuThanksActivity::class.java)
-
-            intent.putExtra("menuName", menuName)
-            intent.putExtra("menuPrice", "${menuPrice}円")
-
-            startActivity(intent)
+            order(item)
         }
     }
 
@@ -127,5 +118,17 @@ class MainActivity : AppCompatActivity() {
         menu = mutableMapOf("name" to "からあげカレー", "price" to 540, "desc" to "特選スパイスをきかせたカレーに若鳥のから揚げをトッピングです。")
         menuList.add(menu)
         return menuList
+    }
+
+    private fun order(menu: MutableMap<String, Any>) {
+
+        val menuName = menu["name"] as String
+        val menuPrice = menu["price"] as String
+
+        val intent = Intent(applicationContext, MenuThanksActivity::class.java)
+        intent.putExtra("menuName", menuName)
+        intent.putExtra("menuPrice", menuPrice)
+
+        startActivity(intent)
     }
 }
