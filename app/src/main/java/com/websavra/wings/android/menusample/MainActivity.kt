@@ -140,11 +140,11 @@ class MainActivity : AppCompatActivity() {
     private fun order(menu: MutableMap<String, Any>) {
 
         val menuName = menu["name"] as String
-        val menuPrice = menu["price"] as String
+        val menuPrice = menu["price"] as Int
 
         val intent = Intent(applicationContext, MenuThanksActivity::class.java)
         intent.putExtra("menuName", menuName)
-        intent.putExtra("menuPrice", menuPrice)
+        intent.putExtra("menuPrice", "${menuPrice}円")
 
         startActivity(intent)
     }
